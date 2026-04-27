@@ -17,11 +17,22 @@ int main() {
 
     /**
      * number adalah pointer ke [0] dengan tipe data unsigned char *
-     * &number adalah pointer ke array dengan tipe data unsigned char (*)[2]
+     * &number adalah pointer ke array dengan tipe data unsigned char (*)[5]
      * & itu adalah operator address-of
+     * 
+     * jika number + 1 maka alamat pointer akan pindah ke elemen berikutnya
+     * tapi jika &number + 1 maka alamat pointer akan keluar dari array tersebut
+     * 
+     * praktik terbaiknya, kalau mau print pakai 
+     * %p gunakan (void*) Type Casting ke Generic Pointer
+     * tapi kalau di sini aman aja sih, tidak ada warning
      */
     printf("%s\n", number);
     printf("%s\n", &number);
+    printf("%p\n", number);
+    printf("%p\n", number + 1);
+    printf("%p\n", &number);
+    printf("%p\n", &number + 1);
     /**
      * *number adalah dereferencing, yaitu mengakses nilai dari sebuah pointer
      * pointer bisa di tambah lalu di akses dengan *
@@ -37,6 +48,7 @@ int main() {
      * %c mengharapkan ascii code dari 0 sampai 127
      * tapi karena kita memberi pointer yang merupakan angka yang besar
      * dia akan mengambil 8 bit terakhir dari angka itu, maka hasilnya bisa acak
+     * dan itu merupakan sebuah undefined behavior, bisa saja langsung crash atau berhenti
      * 
      * %.2s menggunakan . itu untuk memulai spesifik presisi
      * artinya ambil hanya 2 byte untuk mencetak °
